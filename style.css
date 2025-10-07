@@ -82,6 +82,15 @@ body {
   transform: translateY(-4px);
 }
 
+/* Keep the current page button dark and "hovered" */
+.frosted-btn.active {
+  background: rgba(255, 255, 255, 0.35);
+  transform: translateY(-2px);
+  box-shadow: 0 0 12px rgba(255, 255, 255, 0.2);
+  color: #fff;
+  cursor: default;
+}
+
 @media (max-width: 600px) {
   .frosted-btn {
     font-size: 0.9rem;
