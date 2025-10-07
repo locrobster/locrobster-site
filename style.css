@@ -42,21 +42,28 @@ body {
 
 /* Navigation Buttons */
 .button-container {
-  border-radius: 40px;
-  background: rgba(255,255,255,0.12);
-  backdrop-filter: blur(20px) saturate(180%);
-  box-shadow: 0 12px 28px rgba(0,0,0,0.5),0 0 25px rgba(185,160,255,0.22);
-  padding: 28px 48px;
-  margin: 50px 0;
   display: flex;
   justify-content: center;
-  gap: 36px;
-  flex-wrap: wrap;
-  z-index: 5;
+  align-items: center;
+  flex-wrap: nowrap;                /* Prevent wrapping into multiple rows */
+  gap: 24px;
+  padding: 20px 32px;
+  border-radius: 40px;
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(20px) saturate(180%);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.5), 0 0 25px rgba(185, 160, 255, 0.22);
+  margin: 40px auto;
+  width: fit-content;               /* Auto width based on button content */
+  max-width: 95vw;                  /* Slight breathing room on smaller screens */
+  overflow-x: auto;                 /* Allow horizontal scroll if needed */
+  scrollbar-width: none;            /* Hide scrollbar (Firefox) */
 }
+.button-container::-webkit-scrollbar { display: none; } /* Hide scrollbar (Chrome/Safari) */
+
 .frosted-btn {
-  font-size: 1.2rem;
-  padding: 14px 30px;
+  flex-shrink: 0;                   /* Prevent buttons from squishing */
+  font-size: 1.1rem;
+  padding: 12px 26px;
   color: #fff;
   text-decoration: none;
   border-radius: 30px;
@@ -73,6 +80,59 @@ body {
 .frosted-btn:hover {
   background: rgba(255,255,255,0.35);
   transform: translateY(-4px);
+}
+
+@media (max-width: 600px) {
+  .frosted-btn {
+    font-size: 0.9rem;
+    padding: 10px 20px;
+  }
+}
+
+/* Hide the active (current page) button on small screens */
+@media (max-width: 700px) {
+  .frosted-btn.active {
+    display: none;
+  }
+}
+
+/* Tighten spacing when active button is hidden on mobile */
+@media (max-width: 700px) {
+  .button-container {
+    gap: 10px;               /* closer together */
+    padding: 8px 10px;       /* tighter side padding */
+    justify-content: space-evenly;
+  }
+
+  .frosted-btn {
+    font-size: 0.85rem;      /* slightly smaller for better fit */
+    padding: 8px 14px;       /* less internal padding */
+  }
+}
+
+/* Hide the active (current page) button on small screens */
+@media (max-width: 700px) {
+  .frosted-btn.active {
+    display: none;
+  }
+}
+
+/* Tighten spacing when active button is hidden on mobile */
+@media (max-width: 700px) {
+  .button-container {
+    gap: 10px;               /* closer buttons */
+    padding: 6px 8px;        /* smaller container height */
+    justify-content: space-evenly;
+    border-radius: 0;        /* keep it docked edge-to-edge */
+    box-shadow: 0 8px 18px rgba(0,0,0,0.45),
+                0 0 18px rgba(180,160,255,0.18);
+  }
+
+  .frosted-btn {
+    font-size: 0.85rem;
+    padding: 6px 12px;       /* less padding = shorter buttons */
+    border-radius: 24px;     /* slightly smaller corners */
+  }
 }
 
 /* Gallery Container */
@@ -184,11 +244,11 @@ body {
 /* --- Swiper container fills screen vertically --- */
 .swiper {
   width: 100%;
-  height: 100vh; /* make sure the swiper takes full vertical height */
+  height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 0 40px; /* side padding so arrows never touch images */
+  padding: 0 40px;
   box-sizing: border-box;
 }
 
@@ -236,10 +296,9 @@ body {
 /* --- Mobile adjustments --- */
 @media (max-width: 768px) {
   .swiper {
-    padding: 0 20px; /* slightly smaller side padding on phones */
+    padding: 0 20px;
   }
 }
-
 
 /* Close button */
 .close-btn {
@@ -283,4 +342,157 @@ body {
   font-size:.9rem;
   opacity:.9;
   margin-top:6px;
+}
+
+/* === Subpage Adjustments === */
+.banner.cropped {
+  aspect-ratio: 1920/300;
+  background-position: center 33%;
+  justify-content: center;
+  align-items: flex-start;
+  margin-top: 0;
+  border-bottom: 1px solid rgba(209,213,219,0.3);
+}
+
+body.subpage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.banner.cropped + .button-container {
+  margin-top: 20px;
+}
+
+/* === Gallery Layout Adjustment === */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  gap: 30px;
+  width: min(90vw, 880px);
+  padding-left: 20px;   /* new side padding */
+  padding-right: 20px;  /* new side padding */
+  justify-items: center;
+  align-items: center;
+}
+
+/* Make sure thumbnails are visually balanced and responsive */
+.gallery-grid .thumb {
+  width: 100%;
+  height: 100%;
+  max-width: 380px; /* prevents overly large boxes */
+  aspect-ratio: 1 / 1;
+}
+
+/* Mobile layout: stack thumbnails in one column */
+@media (max-width: 768px) {
+  .gallery-grid {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    width: 92vw;
+    padding-left: 14px;
+    padding-right: 14px;
+  }
+}
+
+/* === Gallery Thumbnail Hover + Lightbox Consistency === */
+
+/* Match homepage thumbnail visuals */
+.gallery-grid .thumb {
+  position: relative;
+  cursor: pointer;
+  overflow: hidden;
+  border-radius: 30px;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.3), inset 0 0 25px rgba(255,255,255,0.1);
+  transition: box-shadow 0.6s ease, background 0.6s ease;
+}
+
+.gallery-grid .thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: inherit;
+  transition: transform 1.2s ease, filter 1.2s ease, opacity 0.6s ease;
+  transform: scale(1);
+  filter: brightness(0.95) saturate(1.05);
+  opacity: 1;
+}
+
+/* Glow and brighten on hover */
+.gallery-grid .thumb:hover {
+  background: rgba(255, 255, 255, 0.22);
+  box-shadow: 0 0 25px rgba(190,160,255,0.35),
+              0 8px 30px rgba(0,0,0,0.4),
+              inset 0 0 20px rgba(255,255,255,0.15);
+}
+
+.gallery-grid .thumb:hover img {
+  transform: scale(1.04);
+  filter: brightness(1.1) saturate(1.2);
+}
+
+/* Gentle radial glow animation like the home page */
+.gallery-grid .thumb:hover::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: radial-gradient(circle at center,
+              rgba(200,180,255,0.35) 0%, rgba(200,180,255,0) 70%);
+  opacity: 0.6;
+  animation: thumbGlow 2.2s ease-in-out infinite alternate;
+  pointer-events: none;
+}
+
+/* === Shop Page Adjustments === */
+.shop-frame {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 40px 30px;
+  width: min(92vw, 1000px);
+  margin-top: 40px;
+  text-align: center;
+}
+
+.shop-frame .shop-content p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 25px;
+}
+
+.shop-frame .info-text {
+  font-size: 0.95rem;
+  opacity: 0.95;
+  background: rgba(255, 255, 255, 0.12);
+  border-radius: 15px;
+  padding: 14px 18px;
+  margin-top: 10px;
+  margin-bottom: 15px;
+  box-shadow: inset 0 0 20px rgba(255, 255, 255, 0.1);
+}
+
+.shop-frame .printify-frame {
+  width: 100%;
+  height: 700px;
+  border: none;
+  border-radius: 20px;
+  margin-top: 25px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+}
+
+@media (max-width: 768px) {
+  .shop-frame {
+    padding: 25px 16px;
+  }
+
+  .shop-frame .printify-frame {
+    height: 600px;
+  }
 }
