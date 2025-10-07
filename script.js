@@ -1,4 +1,3 @@
-// Photo groups (case-sensitive file names)
 const groups = {
   robbie: [
     "images/fullsize/robbie/RobbieSmall1_web.jpg",
@@ -19,7 +18,6 @@ const groups = {
   ]
 };
 
-// Site graphics (non-photo assets) – for reference/use if needed later
 const graphics = {
   bannerLogo: "graphics/bannerlogo.png",
   mainBanner: "graphics/mainbanner.png",
@@ -32,14 +30,12 @@ const closeBtn = document.querySelector(".close-btn");
 const swiperWrapper = document.querySelector(".swiper-wrapper");
 let swiper;
 
-// Open lightbox on thumbnail click
 document.querySelectorAll(".thumb").forEach(thumb => {
   thumb.addEventListener("click", () => {
     const groupKey = thumb.getAttribute("data-group");
     const images = groups[groupKey];
     if (!images || images.length === 0) return;
 
-    // Build slides
     swiperWrapper.innerHTML = "";
     images.forEach(src => {
       const slide = document.createElement("div");
@@ -48,9 +44,10 @@ document.querySelectorAll(".thumb").forEach(thumb => {
       swiperWrapper.appendChild(slide);
     });
 
+    lightbox.style.display = "flex";
     lightbox.classList.add("active");
+    lightbox.style.pointerEvents = "auto";
 
-    // Init/refresh Swiper
     if (swiper) swiper.destroy(true, true);
     swiper = new Swiper(".swiper", {
       slidesPerView: 1,
@@ -67,14 +64,26 @@ document.querySelectorAll(".thumb").forEach(thumb => {
   });
 });
 
-// Close lightbox with animation-friendly delay
 function closeLightbox() {
   lightbox.classList.remove("active");
-}
-closeBtn.addEventListener("click", closeLightbox);
-document.addEventListener("keydown", e => { if (e.key === "Escape") closeLightbox(); });
+  lightbox.style.pointerEvents = "none";
 
-// Lucide icons (guarded)
+  setTimeout(() => {
+    if (swiper) {
+      swiper.destroy(true, true);
+      swiper = null;
+    }
+    lightbox.style.display = "none";
+    lightbox.style.pointerEvents = "auto";
+    swiperWrapper.innerHTML = "";
+  }, 300); // match 0.3s CSS fade duration
+}
+
+closeBtn.addEventListener("click", closeLightbox);
+document.addEventListener("keydown", e => {
+  if (e.key === "Escape") closeLightbox();
+});
+
 if (window.lucide && typeof window.lucide.createIcons === "function") {
   window.lucide.createIcons();
 }
