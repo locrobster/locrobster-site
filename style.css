@@ -97,7 +97,7 @@ body {
   z-index: 5;
 }
 
-/* Thumbnails (glass + gentle hover) */
+/* Thumbnails */
 .thumb {
   position: relative;
   cursor: pointer;
@@ -143,7 +143,7 @@ body {
   to   { opacity: 0.7; filter: blur(16px); }
 }
 
-/* Lightbox (cinematic fade + parallax + reflection) */
+/* Lightbox (faster 0.3s fade) */
 .lightbox {
   display: flex;
   position: fixed;
@@ -154,13 +154,13 @@ body {
   z-index: 1000;
   pointer-events: none;
   opacity: 0;
-  transition: opacity 0.6s cubic-bezier(0.55, 0.06, 0.68, 0.19);
+  transition: opacity 0.3s cubic-bezier(0.55, 0.06, 0.68, 0.19);
   perspective: 1200px;
 }
 .lightbox.active {
   opacity: 1;
   pointer-events: all;
-  transition: opacity 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+  transition: opacity 0.3s cubic-bezier(0.22, 1, 0.36, 1);
 }
 .lightbox::before {
   content: '';
@@ -170,22 +170,14 @@ body {
   backdrop-filter: blur(8px);
   z-index: 0;
   opacity: 0;
-  transition: opacity 0.6s cubic-bezier(0.55, 0.06, 0.68, 0.19);
+  transition: opacity 0.3s cubic-bezier(0.55, 0.06, 0.68, 0.19);
 }
 .lightbox.active::before {
   opacity: 1;
-  transition: opacity 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+  transition: opacity 0.3s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-@keyframes zoomInParallax {
-  0% { transform: translateZ(-120px) scale(0.92); opacity: 0; }
-  100% { transform: translateZ(0) scale(1); opacity: 1; }
-}
-@keyframes zoomOutParallax {
-  0% { transform: translateZ(0) scale(1); opacity: 1; }
-  100% { transform: translateZ(-120px) scale(0.92); opacity: 0; }
-}
-
+/* Swiper core and close button stay same */
 .swiper {
   position: relative;
   z-index: 1;
@@ -209,47 +201,9 @@ body {
   object-fit: contain;
   border-radius: 12px;
   box-shadow: 0 0 30px rgba(0,0,0,0.6);
-  opacity: 0;
-  transform: translateZ(-120px) scale(0.92);
-  transition: none;
-  position: relative;
-}
-.lightbox.active .swiper-slide-active img {
-  animation: zoomInParallax 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
-}
-.lightbox:not(.active) .swiper-slide-active img {
-  animation: zoomOutParallax 0.6s cubic-bezier(0.55, 0.06, 0.68, 0.19) forwards;
 }
 
-/* Reflection glow under active image */
-.swiper-slide img::after {
-  content: '';
-  position: absolute;
-  bottom: -35px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 80%;
-  height: 20px;
-  background: radial-gradient(ellipse at center, rgba(255,255,255,0.35) 0%, rgba(255,255,255,0) 80%);
-  filter: blur(12px);
-  opacity: 0.7;
-  pointer-events: none;
-  border-radius: 50%;
-  transition: opacity 0.6s ease;
-}
-.lightbox.active .swiper-slide-active img::after { opacity: 1; }
-
-/* Swiper arrows */
-.swiper-button-next, .swiper-button-prev {
-  color: white;
-  filter: drop-shadow(0 0 8px rgba(255,255,255,0.8));
-  width: 50px;
-  height: 50px;
-  z-index: 2000;
-}
-.swiper-button-next::after, .swiper-button-prev::after { font-size: 28px; }
-
-/* Close button (always above blur) */
+/* Close button */
 .close-btn {
   position: fixed;
   top: 22px;
@@ -264,13 +218,6 @@ body {
   text-shadow: 0 0 10px rgba(0,0,0,0.6);
 }
 .close-btn:hover { transform: scale(1.06); }
-
-@media (max-width: 768px) {
-  .swiper-slide img {
-    max-width: calc(100vw - 100px);
-    max-height: calc(100vh - 120px);
-  }
-}
 
 /* Footer */
 .footer {
@@ -299,5 +246,3 @@ body {
   opacity:.9;
   margin-top:6px;
 }
-
-/* Lightbox + Footer styles stay same as previous version */
