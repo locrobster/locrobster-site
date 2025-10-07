@@ -3,24 +3,28 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Gallery | LocRobster</title>
+  <title>LocRobster Studios — Gallery</title>
+  <link rel="icon" type="image/png" href="graphics/favicon.png" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <link rel="stylesheet" href="style.css" />
+  <script src="https://unpkg.com/lucide@latest"></script>
   <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 </head>
-<body>
 
+<body class="subpage">
   <!-- Banner -->
-  <header class="banner">
-    <img src="graphics/mainbanner.png" alt="Banner" loading="lazy" />
-  </header>
+  <div class="banner cropped">
+    <img src="graphics/bannerlogo.png" alt="LocRobster Studios Banner Logo" />
+  </div>
 
   <!-- Navigation Buttons -->
   <div class="button-container">
-    <a class="frosted-btn" href="index.html">Home</a>
-    <a class="frosted-btn" href="shop.html">Shop</a>
-    <a class="frosted-btn" href="gallery.html">Gallery</a>
-    <a class="frosted-btn" href="about.html">About</a>
-    <a class="frosted-btn" href="contact.html">Contact</a>
+    <a href="index.html" class="frosted-btn"><i data-lucide="home"></i> Home</a>
+    <a href="shop.html" class="frosted-btn"><i data-lucide="shopping-bag"></i> Shop</a>
+    <a href="gallery.html" class="frosted-btn"><i data-lucide="image"></i> Gallery</a>
+    <a href="about.html" class="frosted-btn"><i data-lucide="user"></i> About</a>
+    <a href="contact.html" class="frosted-btn"><i data-lucide="mail"></i> Contact</a>
   </div>
 
   <!-- Gallery Grid -->
@@ -40,6 +44,10 @@
     <div class="thumb" data-group="art">
       <img loading="lazy" src="images/thumbnails/art/horizon_thumb.jpg" alt="Horizon" />
     </div>
+    <!-- New 6th thumbnail -->
+    <div class="thumb" data-group="art">
+      <img loading="lazy" src="images/thumbnails/art/zenith_thumb.jpg" alt="Zenith" />
+    </div>
   </section>
 
   <!-- Lightbox Overlay -->
@@ -55,32 +63,28 @@
   <!-- Footer -->
   <footer class="footer">
     <div class="socials">
-      <a href="#" aria-label="Instagram"><i data-lucide="instagram"></i></a>
-      <a href="#" aria-label="Twitter"><i data-lucide="twitter"></i></a>
-      <a href="#" aria-label="Mail"><i data-lucide="mail"></i></a>
+      <a href="https://www.tiktok.com/@locrobster" target="_blank"><i class="fab fa-tiktok"></i></a>
+      <a href="https://www.instagram.com/locrobster_studios" target="_blank"><i class="fab fa-instagram"></i></a>
+      <a href="https://www.youtube.com/@LocRobster" target="_blank"><i class="fab fa-youtube"></i></a>
+      <a href="https://x.com/locrobster" target="_blank"><i class="fab fa-x-twitter"></i></a>
+      <a href="https://www.twitch.tv/locrobster" target="_blank"><i class="fab fa-twitch"></i></a>
     </div>
-    <p class="copyright">© 2025 LocRobster</p>
+    <div class="copyright">© 2025 LocRobster Studios. All Rights Reserved.</div>
   </footer>
 
-  <!-- Script -->
   <script src="script.js"></script>
+  <script>lucide.createIcons();</script>
 
-  <!-- Inline Swipe-to-Close Support -->
+  <!-- Swipe-to-close support -->
   <script>
     (function() {
       const lightbox = document.getElementById("lightbox");
       let touchStartY = 0;
-
-      lightbox.addEventListener("touchstart", (e) => {
-        touchStartY = e.touches[0].clientY;
-      });
-
+      lightbox.addEventListener("touchstart", (e) => { touchStartY = e.touches[0].clientY; });
       lightbox.addEventListener("touchend", (e) => {
         const touchEndY = e.changedTouches[0].clientY;
         const distance = touchStartY - touchEndY;
-        if (distance > 100) { // swipe up more than 100px
-          if (typeof closeLightbox === "function") closeLightbox();
-        }
+        if (distance > 100 && typeof closeLightbox === "function") closeLightbox();
       });
     })();
   </script>

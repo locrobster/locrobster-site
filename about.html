@@ -3,71 +3,62 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>About | LocRobster Studios</title>
+  <title>LocRobster Studios — About</title>
+  <link rel="icon" type="image/png" href="graphics/favicon.png" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <link rel="stylesheet" href="style.css" />
   <script src="https://unpkg.com/lucide@latest"></script>
-  <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 </head>
-<body>
 
+<body class="subpage">
   <!-- Banner -->
-  <header class="banner">
-    <img src="graphics/mainbanner.png" alt="LocRobster Studios Banner" class="banner-image" />
-  </header>
+  <div class="banner cropped">
+    <img src="graphics/bannerlogo.png" alt="LocRobster Studios Banner Logo" />
+  </div>
 
   <!-- Navigation Buttons -->
   <div class="button-container">
-    <a class="frosted-btn" href="index.html">Home</a>
-    <a class="frosted-btn" href="shop.html">Shop</a>
-    <a class="frosted-btn" href="gallery.html">Gallery</a>
-    <a class="frosted-btn active" href="about.html">About</a>
-    <a class="frosted-btn" href="contact.html">Contact</a>
+    <a href="index.html" class="frosted-btn"><i data-lucide="home"></i> Home</a>
+    <a href="shop.html" class="frosted-btn"><i data-lucide="shopping-bag"></i> Shop</a>
+    <a href="gallery.html" class="frosted-btn"><i data-lucide="image"></i> Gallery</a>
+    <a href="about.html" class="frosted-btn"><i data-lucide="user"></i> About</a>
+    <a href="contact.html" class="frosted-btn"><i data-lucide="mail"></i> Contact</a>
   </div>
 
-  <!-- Glass Frame Content -->
-  <section class="glass-frame">
-    <div class="page-content">
-      <h2 class="coming-soon">Coming Soon</h2>
-      <p class="subtext">This page is currently being designed. Check back soon for updates about LocRobster Studios and our creative mission!</p>
-    </div>
-  </section>
+  <!-- About Content -->
+  <div class="glass-frame">
+    <h2>About LocRobster Studios</h2>
+    <p>
+      LocRobster Studios was founded with a single purpose: to bring fresh, eye-catching designs
+      and artwork to life across apparel, decor, and digital spaces. Every piece we create is built
+      from original art and genuine creativity — meant to stand out and tell a story.
+    </p>
+    <p>
+      Our long-term vision is to grow beyond just clothing and home decor. We aim to evolve into a
+      brand that uses its resources for good — sponsoring community outreach, supporting
+      humanitarian efforts, and investing in ways to reduce pollution and promote harmony.
+    </p>
+    <p>
+      We’re a creative collective driven by originality, purpose, and heart — designing not just
+      products, but a movement.
+    </p>
+  </div>
 
   <!-- Footer -->
   <footer class="footer">
     <div class="socials">
-      <a href="https://www.instagram.com/locrobster_studios" target="_blank" aria-label="Instagram"><i data-lucide="instagram"></i></a>
-      <a href="https://x.com/locrobster" target="_blank" aria-label="X"><i data-lucide="twitter"></i></a>
-      <a href="https://www.tiktok.com/@locrobster" target="_blank" aria-label="TikTok"><i data-lucide="music"></i></a>
-      <a href="mailto:locrobsterstudios@gmail.com" aria-label="Email"><i data-lucide="mail"></i></a>
+      <a href="https://www.tiktok.com/@locrobster" target="_blank"><i class="fab fa-tiktok"></i></a>
+      <a href="https://www.instagram.com/locrobster_studios" target="_blank"><i class="fab fa-instagram"></i></a>
+      <a href="https://www.youtube.com/@LocRobster" target="_blank"><i class="fab fa-youtube"></i></a>
+      <a href="https://x.com/locrobster" target="_blank"><i class="fab fa-x-twitter"></i></a>
+      <a href="https://www.twitch.tv/locrobster" target="_blank"><i class="fab fa-twitch"></i></a>
     </div>
-    <p>© 2025 LocRobster Studios. All Rights Reserved.</p>
+    <div class="copyright">© 2025 LocRobster Studios. All Rights Reserved.</div>
   </footer>
 
-  <style>
-    .page-content {
-      text-align: center;
-      color: #fff;
-      padding: 80px 20px;
-    }
-    .coming-soon {
-      font-size: 2rem;
-      font-weight: 700;
-      margin-bottom: 12px;
-    }
-    .subtext {
-      font-size: 1rem;
-      opacity: 0.85;
-      max-width: 600px;
-      margin: 0 auto;
-      line-height: 1.5;
-    }
-  </style>
-
-  <script>
-    if (window.lucide && typeof window.lucide.createIcons === "function") {
-      window.lucide.createIcons();
-    }
-  </script>
-
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script src="script.js"></script>
+  <script>lucide.createIcons();</script>
 </body>
 </html>

@@ -184,11 +184,11 @@ body {
 /* --- Swiper container fills screen vertically --- */
 .swiper {
   width: 100%;
-  height: 100vh; /* make sure the swiper takes full vertical height */
+  height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 0 40px; /* side padding so arrows never touch images */
+  padding: 0 40px;
   box-sizing: border-box;
 }
 
@@ -236,10 +236,9 @@ body {
 /* --- Mobile adjustments --- */
 @media (max-width: 768px) {
   .swiper {
-    padding: 0 20px; /* slightly smaller side padding on phones */
+    padding: 0 20px;
   }
 }
-
 
 /* Close button */
 .close-btn {
@@ -283,4 +282,109 @@ body {
   font-size:.9rem;
   opacity:.9;
   margin-top:6px;
+}
+
+/* === Subpage Adjustments === */
+.banner.cropped {
+  aspect-ratio: 1920/300;
+  background-position: center 33%;
+  justify-content: center;
+  align-items: flex-start;
+  margin-top: 0;
+  border-bottom: 1px solid rgba(209,213,219,0.3);
+}
+
+body.subpage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.banner.cropped + .button-container {
+  margin-top: 20px;
+}
+
+/* === Gallery Layout Adjustment === */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  gap: 30px;
+  width: min(90vw, 880px);
+  padding-left: 20px;   /* new side padding */
+  padding-right: 20px;  /* new side padding */
+  justify-items: center;
+  align-items: center;
+}
+
+/* Make sure thumbnails are visually balanced and responsive */
+.gallery-grid .thumb {
+  width: 100%;
+  height: 100%;
+  max-width: 380px; /* prevents overly large boxes */
+  aspect-ratio: 1 / 1;
+}
+
+/* Mobile layout: stack thumbnails in one column */
+@media (max-width: 768px) {
+  .gallery-grid {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    width: 92vw;
+    padding-left: 14px;
+    padding-right: 14px;
+  }
+}
+
+/* === Gallery Thumbnail Hover + Lightbox Consistency === */
+
+/* Match homepage thumbnail visuals */
+.gallery-grid .thumb {
+  position: relative;
+  cursor: pointer;
+  overflow: hidden;
+  border-radius: 30px;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.3), inset 0 0 25px rgba(255,255,255,0.1);
+  transition: box-shadow 0.6s ease, background 0.6s ease;
+}
+
+.gallery-grid .thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: inherit;
+  transition: transform 1.2s ease, filter 1.2s ease, opacity 0.6s ease;
+  transform: scale(1);
+  filter: brightness(0.95) saturate(1.05);
+  opacity: 1;
+}
+
+/* Glow and brighten on hover */
+.gallery-grid .thumb:hover {
+  background: rgba(255, 255, 255, 0.22);
+  box-shadow: 0 0 25px rgba(190,160,255,0.35),
+              0 8px 30px rgba(0,0,0,0.4),
+              inset 0 0 20px rgba(255,255,255,0.15);
+}
+
+.gallery-grid .thumb:hover img {
+  transform: scale(1.04);
+  filter: brightness(1.1) saturate(1.2);
+}
+
+/* Gentle radial glow animation like the home page */
+.gallery-grid .thumb:hover::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: radial-gradient(circle at center,
+              rgba(200,180,255,0.35) 0%, rgba(200,180,255,0) 70%);
+  opacity: 0.6;
+  animation: thumbGlow 2.2s ease-in-out infinite alternate;
+  pointer-events: none;
 }

@@ -1,53 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- HEAD MATCHES YOUR index.html -->
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>LocRobster Studios | Contact</title>
-  <link rel="icon" type="image/png" href="favicon.png">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LocRobster Studios — Contact</title>
+  <link rel="icon" type="image/png" href="graphics/favicon.png" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="style.css" />
   <script src="https://unpkg.com/lucide@latest"></script>
-
-  <style>
-    /* copied from index */
-    :root {--bg1:#4b1f9e;--bg2:#6a3db5;--bg3:#a153d5;--text:#f7f8fb;}
-    body { font-family:'Inter',sans-serif; background:linear-gradient(to right,var(--bg1),var(--bg2),var(--bg3)); color:var(--text); margin:0; display:flex; flex-direction:column; align-items:center; }
-    .banner { width:100%; aspect-ratio:1920/600; position:relative; border-bottom:1px solid rgba(255,255,255,0.28); box-shadow:0 10px 30px rgba(0,0,0,0.35); background-color:rgba(194,200,235,0.34); background-image:url('mainbanner.png'); background-size:cover; background-position:center; background-blend-mode:overlay; }
-    .banner img { width:100%; height:100%; object-fit:cover; pointer-events:none; }
-    .button-container { border-radius:40px; background:rgba(255,255,255,0.12); backdrop-filter:blur(20px) saturate(180%); -webkit-backdrop-filter:blur(20px) saturate(180%); box-shadow:0 12px 28px rgba(0,0,0,0.5), 0 0 25px rgba(185,160,255,0.22); padding:28px 48px; margin:50px 0; display:flex; justify-content:center; gap:36px; flex-wrap:wrap; z-index:5; }
-    .frosted-btn { font-size:1.2rem; padding:14px 30px; color:#fff; text-decoration:none; border-radius:30px; background:rgba(255,255,255,0.25); backdrop-filter:blur(12px) saturate(180%); border:1px solid rgba(255,255,255,0.3); display:flex; align-items:center; gap:10px; transition:transform .18s ease, box-shadow .18s ease, background .18s ease; }
-    .frosted-btn:hover { transform:translateY(-2px); box-shadow:0 6px 20px rgba(0,0,0,0.35), 0 0 18px rgba(185,160,255,0.35); background:rgba(255,255,255,0.32); }
-    .glass-frame { width:min(1100px,92vw); border-radius:26px; padding:28px; background:rgba(255,255,255,0.14); border:1px solid rgba(255,255,255,0.28); box-shadow:0 18px 40px rgba(0,0,0,0.35), inset 0 0 40px rgba(185,160,255,0.12); backdrop-filter:blur(18px) saturate(160%); -webkit-backdrop-filter:blur(18px) saturate(160%); }
-    .footer { width:100%; display:flex; flex-direction:column; align-items:center; padding:22px 16px 30px; background:rgba(255,255,255,0.10); backdrop-filter:blur(14px) saturate(160%); border-top:1px solid rgba(255,255,255,0.22); box-shadow:0 -8px 28px rgba(150,100,255,0.25) inset; gap:12px; margin-top:24px; }
-    .socials { display:flex; gap:18px; } .socials a { font-size:1.6rem; color:var(--text); transition:transform .2s ease, color .2s ease; } .socials a:hover { transform:translateY(-2px); color:#c9a9ff; }
-    .copyright { font-family:Georgia,serif; font-size:.9rem; opacity:.9; margin-top:6px; }
-    /* page-specific */
-    .page-content { text-align:center; color:#fff; padding:80px 20px; }
-    .coming-soon { font-size:2rem; font-weight:700; margin-bottom:12px; }
-    .subtext { font-size:1rem; opacity:.85; max-width:600px; margin:0 auto; line-height:1.5; }
-  </style>
 </head>
-<body>
 
-  <div class="banner"><img src="bannerlogo.png" alt="LocRobster Studios Banner Logo"></div>
+<body class="subpage">
+  <!-- Banner -->
+  <div class="banner cropped">
+    <img src="graphics/bannerlogo.png" alt="LocRobster Studios Banner Logo" />
+  </div>
 
+  <!-- Navigation Buttons -->
   <div class="button-container">
+    <a href="index.html" class="frosted-btn"><i data-lucide="home"></i> Home</a>
     <a href="shop.html" class="frosted-btn"><i data-lucide="shopping-bag"></i> Shop</a>
     <a href="gallery.html" class="frosted-btn"><i data-lucide="image"></i> Gallery</a>
     <a href="about.html" class="frosted-btn"><i data-lucide="user"></i> About</a>
     <a href="contact.html" class="frosted-btn"><i data-lucide="mail"></i> Contact</a>
   </div>
 
-  <section class="glass-frame">
-    <div class="page-content">
-      <h2 class="coming-soon">Coming Soon</h2>
-      <p class="subtext">This page will include ways to get in touch with LocRobster Studios — including email, socials, and collaboration forms. Stay tuned!</p>
-    </div>
-  </section>
+  <!-- Contact Content -->
+  <div class="glass-frame">
+    <h2>Contact LocRobster Studios</h2>
+    <p>
+      We’d love to hear from you! Whether it’s a question about a product, a design idea,
+      or a collaboration opportunity, feel free to reach out.
+    </p>
 
+    <p><strong>Email:</strong> <a href="mailto:locrobsterstudios@gmail.com">locrobsterstudios@gmail.com</a></p>
+    <p><strong>Social Media:</strong> You can also message us through TikTok, Instagram, or YouTube —
+      we’re pretty quick to respond there too!</p>
+
+    <p>
+      Thank you for supporting original art and helping us grow a creative, positive, and
+      community-driven brand.
+    </p>
+  </div>
+
+  <!-- Footer -->
   <footer class="footer">
     <div class="socials">
       <a href="https://www.tiktok.com/@locrobster" target="_blank"><i class="fab fa-tiktok"></i></a>
@@ -59,10 +56,8 @@
     <div class="copyright">© 2025 LocRobster Studios. All Rights Reserved.</div>
   </footer>
 
-  <script>
-    if (window.lucide && typeof window.lucide.createIcons === "function") {
-      window.lucide.createIcons();
-    }
-  </script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script src="script.js"></script>
+  <script>lucide.createIcons();</script>
 </body>
 </html>

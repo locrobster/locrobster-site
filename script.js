@@ -23,13 +23,22 @@ const groups = {
   ],
 
   // Parker gallery – shows images 1–5
-  parker: [
-    "images/fullsize/parker/ParkerSmall1_web.jpg",
-    "images/fullsize/parker/ParkerSmall2_web.jpg",
-    "images/fullsize/parker/ParkerSmall3_web.jpg",
-    "images/fullsize/parker/ParkerSmall4_web.jpg",
-    "images/fullsize/parker/ParkerSmall5_web.jpg"
-  ]
+parker: [
+  "images/fullsize/parker/ParkerSmall1_web.jpg",
+  "images/fullsize/parker/ParkerSmall2_web.jpg",
+  "images/fullsize/parker/ParkerSmall3_web.jpg",
+  "images/fullsize/parker/ParkerSmall4_web.jpg",
+  "images/fullsize/parker/ParkerSmall5_web.jpg"
+],
+
+art: [
+  "images/fullsize/art/bloom_web.jpg",
+  "images/fullsize/art/dusk_web.jpg",
+  "images/fullsize/art/echoes_web.jpg",
+  "images/fullsize/art/nova_web.jpg",
+  "images/fullsize/art/horizon_web.jpg"
+]
+
 };
 
 // ---------------------------
