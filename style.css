@@ -213,6 +213,18 @@ body {
   box-shadow: 0 0 30px rgba(0, 0, 0, 0.6);
 }
 
+/* Ensure only the active slide is visible during fade transition */
+.swiper-slide {
+  opacity: 0 !important;
+  z-index: 1;
+  transition: opacity 0.3s ease;
+}
+
+.swiper-slide.swiper-slide-active {
+  opacity: 1 !important;
+  z-index: 2;
+}
+
 /* --- Mobile adjustments --- */
 @media (max-width: 768px) {
   .swiper {
