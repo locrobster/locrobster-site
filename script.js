@@ -1,14 +1,28 @@
+// ---------------------------
+// IMAGE GROUPS
+// ---------------------------
 const groups = {
-  robbie: [
+  // Robbie gallery 1 – shows images 1–2
+  robbie1: [
     "images/fullsize/robbie/RobbieSmall1_web.jpg",
-    "images/fullsize/robbie/RobbieSmall2_web.jpg",
+    "images/fullsize/robbie/RobbieSmall2_web.jpg"
+  ],
+
+  // Robbie gallery 2 – shows images 3–6
+  robbie2: [
     "images/fullsize/robbie/RobbieSmall3_web.jpg",
     "images/fullsize/robbie/RobbieSmall4_web.jpg",
     "images/fullsize/robbie/RobbieSmall5_web.jpg",
-    "images/fullsize/robbie/RobbieSmall6_web.jpg",
+    "images/fullsize/robbie/RobbieSmall6_web.jpg"
+  ],
+
+  // Robbie gallery 3 – shows images 7–8
+  robbie3: [
     "images/fullsize/robbie/RobbieSmall7_web.jpg",
     "images/fullsize/robbie/RobbieSmall8_web.jpg"
   ],
+
+  // Parker gallery – shows images 1–5
   parker: [
     "images/fullsize/parker/ParkerSmall1_web.jpg",
     "images/fullsize/parker/ParkerSmall2_web.jpg",
@@ -18,6 +32,9 @@ const groups = {
   ]
 };
 
+// ---------------------------
+// GRAPHICS (non-photo assets)
+// ---------------------------
 const graphics = {
   bannerLogo: "graphics/bannerlogo.png",
   mainBanner: "graphics/mainbanner.png",
@@ -25,45 +42,48 @@ const graphics = {
   favicon: "graphics/favicon.png"
 };
 
+// ---------------------------
+// LIGHTBOX + SWIPER LOGIC
+// ---------------------------
 const lightbox = document.getElementById("lightbox");
 const closeBtn = document.querySelector(".close-btn");
 const swiperWrapper = document.querySelector(".swiper-wrapper");
 let swiper;
 
-document.querySelectorAll(".thumb").forEach(thumb => {
-  thumb.addEventListener("click", () => {
-    const groupKey = thumb.getAttribute("data-group");
-    const images = groups[groupKey];
-    if (!images || images.length === 0) return;
+// Build slides from image array
+function buildSlides(imageList) {
+  swiperWrapper.innerHTML = imageList
+    .map(src => `<div class="swiper-slide"><img src="${src}" alt=""></div>`)
+    .join("");
+}
 
-    swiperWrapper.innerHTML = "";
-    images.forEach(src => {
-      const slide = document.createElement("div");
-      slide.className = "swiper-slide";
-      slide.innerHTML = `<img src="${src}" alt="">`;
-      swiperWrapper.appendChild(slide);
-    });
+// Open Lightbox for a specific group
+function openLightbox(images) {
+  if (!images || !images.length) return;
 
-    lightbox.style.display = "flex";
-    lightbox.classList.add("active");
-    lightbox.style.pointerEvents = "auto";
+  buildSlides(images);
 
-    if (swiper) swiper.destroy(true, true);
-    swiper = new Swiper(".swiper", {
-      slidesPerView: 1,
-      centeredSlides: true,
-      spaceBetween: 60,
-      loop: true,
-      effect: "fade",
-      fadeEffect: { crossFade: true },
-      navigation: { nextEl: ".swiper-button-next", prevEl: ".swiper-button-prev" },
-      keyboard: { enabled: true },
-      observer: true,
-      observeParents: true
-    });
+  lightbox.style.display = "flex";
+  lightbox.classList.add("active");
+  lightbox.style.pointerEvents = "auto";
+
+  // Reinitialize Swiper
+  if (swiper) swiper.destroy(true, true);
+  swiper = new Swiper(".swiper", {
+    slidesPerView: 1,
+    centeredSlides: true,
+    spaceBetween: 60,
+    loop: true,
+    effect: "fade",
+    fadeEffect: { crossFade: true },
+    navigation: { nextEl: ".swiper-button-next", prevEl: ".swiper-button-prev" },
+    keyboard: { enabled: true },
+    observer: true,
+    observeParents: true
   });
-});
+}
 
+// Close Lightbox (fast 0.3s fade-out)
 function closeLightbox() {
   lightbox.classList.remove("active");
   lightbox.style.pointerEvents = "none";
@@ -76,14 +96,32 @@ function closeLightbox() {
     lightbox.style.display = "none";
     lightbox.style.pointerEvents = "auto";
     swiperWrapper.innerHTML = "";
-  }, 300); // match 0.3s CSS fade duration
+  }, 300); // matches 0.3s CSS transition
 }
 
+// ---------------------------
+// EVENT HANDLERS
+// ---------------------------
+
+// Thumbnail click → open appropriate group
+document.querySelectorAll(".thumb").forEach(thumb => {
+  thumb.addEventListener("click", () => {
+    const groupKey = thumb.getAttribute("data-group");
+    const images = groups[groupKey];
+    if (!images || images.length === 0) return;
+    openLightbox(images);
+  });
+});
+
+// Close Lightbox via X or Escape
 closeBtn.addEventListener("click", closeLightbox);
 document.addEventListener("keydown", e => {
   if (e.key === "Escape") closeLightbox();
 });
 
+// ---------------------------
+// INITIALIZE LUCIDE ICONS
+// ---------------------------
 if (window.lucide && typeof window.lucide.createIcons === "function") {
   window.lucide.createIcons();
 }
