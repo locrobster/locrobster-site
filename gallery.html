@@ -13,54 +13,27 @@
 </head>
 
 <body class="subpage">
-  <!-- Banner -->
   <div class="banner cropped">
     <img src="graphics/bannerlogo.png" alt="LocRobster Studios Banner Logo" />
   </div>
 
-  <!-- Navigation Buttons -->
   <div class="button-container">
     <a href="index.html" class="frosted-btn"><i data-lucide="home"></i> Home</a>
     <a href="shop.html" class="frosted-btn"><i data-lucide="shopping-bag"></i> Shop</a>
-    <a href="gallery.html" class="frosted-btn"><i data-lucide="image"></i> Gallery</a>
+    <span class="frosted-btn active"><i data-lucide="image"></i> Gallery</span>
     <a href="about.html" class="frosted-btn"><i data-lucide="user"></i> About</a>
     <a href="contact.html" class="frosted-btn"><i data-lucide="mail"></i> Contact</a>
   </div>
 
-  <!-- Gallery Grid -->
   <section class="glass-frame gallery-grid">
-    <div class="thumb" data-group="art">
-      <img loading="lazy" src="images/thumbnails/art/bloom_thumb.jpg" alt="Bloom" />
-    </div>
-    <div class="thumb" data-group="art">
-      <img loading="lazy" src="images/thumbnails/art/dusk_thumb.jpg" alt="Dusk" />
-    </div>
-    <div class="thumb" data-group="art">
-      <img loading="lazy" src="images/thumbnails/art/echoes_thumb.jpg" alt="Echoes" />
-    </div>
-    <div class="thumb" data-group="art">
-      <img loading="lazy" src="images/thumbnails/art/nova_thumb.jpg" alt="Nova" />
-    </div>
-    <div class="thumb" data-group="art">
-      <img loading="lazy" src="images/thumbnails/art/horizon_thumb.jpg" alt="Horizon" />
-    </div>
-    <!-- New 6th thumbnail -->
-    <div class="thumb" data-group="art">
-      <img loading="lazy" src="images/thumbnails/art/zenith_thumb.jpg" alt="Zenith" />
-    </div>
+    <div class="thumb"><img src="images/thumbnails/art/bloom_thumb.jpg" alt="Bloom" /></div>
+    <div class="thumb"><img src="images/thumbnails/art/dusk_thumb.jpg" alt="Dusk" /></div>
+    <div class="thumb"><img src="images/thumbnails/art/echoes_thumb.jpg" alt="Echoes" /></div>
+    <div class="thumb"><img src="images/thumbnails/art/nova_thumb.jpg" alt="Nova" /></div>
+    <div class="thumb"><img src="images/thumbnails/art/horizon_thumb.jpg" alt="Horizon" /></div>
+    <div class="thumb"><img src="images/thumbnails/art/zenith_thumb.jpg" alt="Zenith" /></div>
   </section>
 
-  <!-- Lightbox Overlay -->
-  <div class="lightbox" id="lightbox">
-    <button class="close-btn" aria-label="Close">&times;</button>
-    <div class="swiper">
-      <div class="swiper-wrapper"></div>
-      <div class="swiper-button-next"></div>
-      <div class="swiper-button-prev"></div>
-    </div>
-  </div>
-
-  <!-- Footer -->
   <footer class="footer">
     <div class="socials">
       <a href="https://www.tiktok.com/@locrobster" target="_blank"><i class="fab fa-tiktok"></i></a>
@@ -74,19 +47,5 @@
 
   <script src="script.js"></script>
   <script>lucide.createIcons();</script>
-
-  <!-- Swipe-to-close support -->
-  <script>
-    (function() {
-      const lightbox = document.getElementById("lightbox");
-      let touchStartY = 0;
-      lightbox.addEventListener("touchstart", (e) => { touchStartY = e.touches[0].clientY; });
-      lightbox.addEventListener("touchend", (e) => {
-        const touchEndY = e.changedTouches[0].clientY;
-        const distance = touchStartY - touchEndY;
-        if (distance > 100 && typeof closeLightbox === "function") closeLightbox();
-      });
-    })();
-  </script>
 </body>
 </html>

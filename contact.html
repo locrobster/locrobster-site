@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>LocRobster Studios — Contact</title>
+  <title>Contact — LocRobster Studios</title>
   <link rel="icon" type="image/png" href="graphics/favicon.png" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
@@ -12,39 +12,42 @@
 </head>
 
 <body class="subpage">
-  <!-- Banner -->
   <div class="banner cropped">
     <img src="graphics/bannerlogo.png" alt="LocRobster Studios Banner Logo" />
   </div>
 
-  <!-- Navigation Buttons -->
   <div class="button-container">
     <a href="index.html" class="frosted-btn"><i data-lucide="home"></i> Home</a>
     <a href="shop.html" class="frosted-btn"><i data-lucide="shopping-bag"></i> Shop</a>
     <a href="gallery.html" class="frosted-btn"><i data-lucide="image"></i> Gallery</a>
     <a href="about.html" class="frosted-btn"><i data-lucide="user"></i> About</a>
-    <a href="contact.html" class="frosted-btn"><i data-lucide="mail"></i> Contact</a>
+    <span class="frosted-btn active"><i data-lucide="mail"></i> Contact</span>
   </div>
 
-  <!-- Contact Content -->
-  <div class="glass-frame">
-    <h2>Contact LocRobster Studios</h2>
-    <p>
-      We’d love to hear from you! Whether it’s a question about a product, a design idea,
-      or a collaboration opportunity, feel free to reach out.
-    </p>
+  <div class="glass-frame gallery-grid">
+    <h2 style="grid-column: 1 / -1; text-align:center; margin-bottom:10px;">Connect with me on social media below!</h2>
 
-    <p><strong>Email:</strong> <a href="mailto:locrobsterstudios@gmail.com">locrobsterstudios@gmail.com</a></p>
-    <p><strong>Social Media:</strong> You can also message us through TikTok, Instagram, or YouTube —
-      we’re pretty quick to respond there too!</p>
-
-    <p>
-      Thank you for supporting original art and helping us grow a creative, positive, and
-      community-driven brand.
-    </p>
+    <a href="https://www.tiktok.com/@locrobster" target="_blank" class="thumb" style="background:rgba(0,0,0,0.5);">
+      <i class="fab fa-tiktok" style="font-size:3rem;color:#fff;"></i>
+    </a>
+    <a href="https://www.instagram.com/locrobster_studios" target="_blank" class="thumb" style="background:linear-gradient(45deg,#f58529,#dd2a7b,#8134af,#515bd4);">
+      <i class="fab fa-instagram" style="font-size:3rem;color:#fff;"></i>
+    </a>
+    <a href="https://www.youtube.com/@LocRobster" target="_blank" class="thumb" style="background:rgba(255,0,0,0.6);">
+      <i class="fab fa-youtube" style="font-size:3rem;color:#fff;"></i>
+    </a>
+    <a href="https://x.com/locrobster" target="_blank" class="thumb" style="background:rgba(0,0,0,0.75);">
+      <i class="fab fa-x-twitter" style="font-size:3rem;color:#fff;"></i>
+    </a>
+    <a href="https://www.twitch.tv/locrobster" target="_blank" class="thumb" style="background:rgba(145,70,255,0.6);">
+      <i class="fab fa-twitch" style="font-size:3rem;color:#fff;"></i>
+    </a>
+    <div class="thumb" style="background:rgba(59,89,152,0.6); display:flex;flex-direction:column;align-items:center;justify-content:center;">
+      <i class="fab fa-facebook-f" style="font-size:3rem;color:#fff;"></i>
+      <span style="margin-top:10px;font-size:1rem;color:#fff;opacity:0.85;">Coming Soon</span>
+    </div>
   </div>
 
-  <!-- Footer -->
   <footer class="footer">
     <div class="socials">
       <a href="https://www.tiktok.com/@locrobster" target="_blank"><i class="fab fa-tiktok"></i></a>
@@ -56,7 +59,6 @@
     <div class="copyright">© 2025 LocRobster Studios. All Rights Reserved.</div>
   </footer>
 
-  <script src="https://unpkg.com/lucide@latest"></script>
   <script src="script.js"></script>
   <script>lucide.createIcons();</script>
 </body>
