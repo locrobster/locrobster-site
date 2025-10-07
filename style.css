@@ -213,16 +213,24 @@ body {
   box-shadow: 0 0 30px rgba(0, 0, 0, 0.6);
 }
 
-/* Ensure only the active slide is visible during fade transition */
+/* Clean fade: only active slide visible */
 .swiper-slide {
-  opacity: 0 !important;
-  z-index: 1;
-  transition: opacity 0.3s ease;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.4s ease, visibility 0.4s ease;
 }
 
 .swiper-slide.swiper-slide-active {
-  opacity: 1 !important;
-  z-index: 2;
+  opacity: 1;
+  visibility: visible;
+  z-index: 3;
+}
+
+.swiper-slide.swiper-slide-next,
+.swiper-slide.swiper-slide-prev {
+  opacity: 0;
+  visibility: hidden;
+  z-index: 1;
 }
 
 /* --- Mobile adjustments --- */
