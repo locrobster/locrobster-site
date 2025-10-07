@@ -134,3 +134,18 @@ document.addEventListener("keydown", e => {
 if (window.lucide && typeof window.lucide.createIcons === "function") {
   window.lucide.createIcons();
 }
+
+// Highlight active navigation button
+document.addEventListener('DOMContentLoaded', () => {
+  const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+  const navLinks = document.querySelectorAll('.button-container a, .button-container span');
+
+  navLinks.forEach(link => {
+    const href = link.getAttribute('href');
+    if ((href && currentPage === href) || (!href && currentPage === 'index.html')) {
+      link.classList.add('active');
+    } else {
+      link.classList.remove('active');
+    }
+  });
+});
