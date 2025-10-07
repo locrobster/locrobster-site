@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gallery | LocRobster</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+</head>
+<body>
+
+  <!-- Banner -->
+  <header class="banner">
+    <img src="graphics/mainbanner.png" alt="Banner" loading="lazy" />
+  </header>
+
+  <!-- Navigation Buttons -->
+  <div class="button-container">
+    <a class="frosted-btn" href="index.html">Home</a>
+    <a class="frosted-btn" href="shop.html">Shop</a>
+    <a class="frosted-btn" href="gallery.html">Gallery</a>
+    <a class="frosted-btn" href="about.html">About</a>
+    <a class="frosted-btn" href="contact.html">Contact</a>
+  </div>
+
+  <!-- Gallery Grid -->
+  <section class="glass-frame gallery-grid">
+    <div class="thumb" data-group="art">
+      <img loading="lazy" src="images/thumbnails/art/bloom_thumb.jpg" alt="Bloom" />
+    </div>
+    <div class="thumb" data-group="art">
+      <img loading="lazy" src="images/thumbnails/art/dusk_thumb.jpg" alt="Dusk" />
+    </div>
+    <div class="thumb" data-group="art">
+      <img loading="lazy" src="images/thumbnails/art/echoes_thumb.jpg" alt="Echoes" />
+    </div>
+    <div class="thumb" data-group="art">
+      <img loading="lazy" src="images/thumbnails/art/nova_thumb.jpg" alt="Nova" />
+    </div>
+    <div class="thumb" data-group="art">
+      <img loading="lazy" src="images/thumbnails/art/horizon_thumb.jpg" alt="Horizon" />
+    </div>
+  </section>
+
+  <!-- Lightbox Overlay -->
+  <div class="lightbox" id="lightbox">
+    <button class="close-btn" aria-label="Close">&times;</button>
+    <div class="swiper">
+      <div class="swiper-wrapper"></div>
+      <div class="swiper-button-next"></div>
+      <div class="swiper-button-prev"></div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="socials">
+      <a href="#" aria-label="Instagram"><i data-lucide="instagram"></i></a>
+      <a href="#" aria-label="Twitter"><i data-lucide="twitter"></i></a>
+      <a href="#" aria-label="Mail"><i data-lucide="mail"></i></a>
+    </div>
+    <p class="copyright">© 2025 LocRobster</p>
+  </footer>
+
+  <!-- Script -->
+  <script src="script.js"></script>
+
+  <!-- Inline Swipe-to-Close Support -->
+  <script>
+    (function() {
+      const lightbox = document.getElementById("lightbox");
+      let touchStartY = 0;
+
+      lightbox.addEventListener("touchstart", (e) => {
+        touchStartY = e.touches[0].clientY;
+      });
+
+      lightbox.addEventListener("touchend", (e) => {
+        const touchEndY = e.changedTouches[0].clientY;
+        const distance = touchStartY - touchEndY;
+        if (distance > 100) { // swipe up more than 100px
+          if (typeof closeLightbox === "function") closeLightbox();
+        }
+      });
+    })();
+  </script>
+</body>
+</html>

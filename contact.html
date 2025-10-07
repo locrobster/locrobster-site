@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact | LocRobster Studios</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg1: #0c001f;
+      --bg2: #12022b;
+      --bg3: #15001e;
+      --accent1: #b9a0ff;
+      --white: #ffffff;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: "Inter", sans-serif;
+      background: linear-gradient(180deg, var(--bg1) 0%, var(--bg2) 55%, var(--bg3) 100%);
+      color: var(--white);
+      overflow-x: hidden;
+    }
+
+    .button-container {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      gap: 25px;
+      margin-top: -45px;
+      z-index: 10;
+    }
+
+    .frosted-btn {
+      display: inline-block;
+      padding: 12px 28px;
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 50px;
+      background: rgba(255, 255, 255, 0.15);
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      backdrop-filter: blur(12px) saturate(180%);
+      transition: all 0.3s ease;
+      text-transform: capitalize;
+      letter-spacing: 0.5px;
+    }
+
+    .frosted-btn:hover {
+      background: rgba(255, 255, 255, 0.3);
+      box-shadow: 0 0 20px rgba(185, 160, 255, 0.5);
+      transform: translateY(-3px);
+    }
+
+    .glass-section {
+      margin: 80px auto;
+      max-width: 1000px;
+      background: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(18px) saturate(160%);
+      border-radius: 30px;
+      padding: 80px 50px;
+      color: #fff;
+      text-align: center;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+      font-size: 1.8rem;
+      font-weight: 600;
+    }
+
+    footer {
+      text-align: center;
+      padding: 40px 20px;
+      font-size: 0.9rem;
+      opacity: 0.85;
+    }
+
+    footer a {
+      color: var(--accent1);
+      margin: 0 10px;
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Banner -->
+  <div class="banner">
+    <div class="banner-container">
+      <div class="frosted-banner">
+        <img src="graphics/bannerlogo.png" alt="LocRobster Studios Logo" class="banner-logo" />
+      </div>
+    </div>
+  </div>
+
+  <!-- Navigation Buttons -->
+  <div class="button-container">
+    <a href="index.html" class="frosted-btn">Home</a>
+    <a href="shop.html" class="frosted-btn">Shop</a>
+    <a href="gallery.html" class="frosted-btn">Gallery</a>
+    <a href="about.html" class="frosted-btn">About</a>
+    <a href="contact.html" class="frosted-btn">Contact</a>
+  </div>
+
+  <!-- Coming Soon Section -->
+  <div class="glass-section">
+    Coming Soon
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-container">
+      <div class="social-icons">
+        <a href="https://www.tiktok.com/@locrobster" target="_blank">TikTok</a>
+        <a href="https://www.instagram.com/locrobster_studios" target="_blank">Instagram</a>
+        <a href="https://www.youtube.com/@LocRobster" target="_blank">YouTube</a>
+        <a href="https://x.com/locrobster" target="_blank">X</a>
+        <a href="https://www.twitch.tv/locrobster" target="_blank">Twitch</a>
+      </div>
+      <p>© 2025 LocRobster Studios. All Rights Reserved.</p>
+    </div>
+  </footer>
+
+</body>
+</html>
