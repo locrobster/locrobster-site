@@ -143,25 +143,28 @@ body {
   to   { opacity: 0.7; filter: blur(16px); }
 }
 
-/* Lightbox (faster 0.3s fade) */
+/* --- Lightbox Container --- */
 .lightbox {
   display: flex;
-  position: fixed;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
   justify-content: center;
   align-items: center;
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
   z-index: 1000;
   pointer-events: none;
   opacity: 0;
   transition: opacity 0.3s cubic-bezier(0.55, 0.06, 0.68, 0.19);
   perspective: 1200px;
 }
+
 .lightbox.active {
   opacity: 1;
   pointer-events: all;
   transition: opacity 0.3s cubic-bezier(0.22, 1, 0.36, 1);
 }
+
 .lightbox::before {
   content: '';
   position: absolute;
@@ -172,36 +175,51 @@ body {
   opacity: 0;
   transition: opacity 0.3s cubic-bezier(0.55, 0.06, 0.68, 0.19);
 }
+
 .lightbox.active::before {
   opacity: 1;
   transition: opacity 0.3s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-/* Swiper core and close button stay same */
+/* --- Swiper container fills screen vertically --- */
 .swiper {
-  position: relative;
-  z-index: 1;
-  width: 90vw;
-  max-width: 1200px;
+  width: 100%;
+  height: 100vh; /* make sure the swiper takes full vertical height */
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: 0 40px; /* side padding so arrows never touch images */
+  box-sizing: border-box;
 }
+
+/* --- Center slides perfectly --- */
 .swiper-slide {
   display: flex;
   justify-content: center;
   align-items: center;
   transform-style: preserve-3d;
 }
+
+/* --- Full-size images --- */
 .swiper-slide img {
+  display: block;
+  max-width: 90vw;
+  max-height: 85vh;
   width: auto;
   height: auto;
-  max-width: calc(100vw - 160px);
-  max-height: calc(100vh - 160px);
+  margin: auto;
   object-fit: contain;
   border-radius: 12px;
-  box-shadow: 0 0 30px rgba(0,0,0,0.6);
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.6);
 }
+
+/* --- Mobile adjustments --- */
+@media (max-width: 768px) {
+  .swiper {
+    padding: 0 20px; /* slightly smaller side padding on phones */
+  }
+}
+
 
 /* Close button */
 .close-btn {
