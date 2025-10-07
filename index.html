@@ -13,33 +13,52 @@
 </head>
 
 <body>
+  <!-- Banner -->
   <div class="banner">
     <img src="graphics/bannerlogo.png" alt="LocRobster Studios Banner Logo" />
   </div>
 
+  <!-- Navigation Buttons -->
   <div class="button-container">
-    <span class="frosted-btn active"><i data-lucide="home"></i> Home</span>
     <a href="shop.html" class="frosted-btn"><i data-lucide="shopping-bag"></i> Shop</a>
     <a href="gallery.html" class="frosted-btn"><i data-lucide="image"></i> Gallery</a>
     <a href="about.html" class="frosted-btn"><i data-lucide="user"></i> About</a>
     <a href="contact.html" class="frosted-btn"><i data-lucide="mail"></i> Contact</a>
   </div>
 
-  <div class="glass-frame">
-    <div class="thumb" data-group="robbie1" data-images="images/fullsize/robbie/RobbieSmall1_web.jpg|images/fullsize/robbie/RobbieSmall2_web.jpg">
-      <img src="images/thumbnails/robbie/RobbieSmall1_thumb.jpg" alt="Robbie 1–2 set">
-    </div>
-    <div class="thumb" data-group="robbie2" data-images="images/fullsize/robbie/RobbieSmall3_web.jpg|images/fullsize/robbie/RobbieSmall4_web.jpg|images/fullsize/robbie/RobbieSmall5_web.jpg|images/fullsize/robbie/RobbieSmall6_web.jpg">
-      <img src="images/thumbnails/robbie/RobbieSmall3_thumb.jpg" alt="Robbie 3–6 set">
-    </div>
-    <div class="thumb" data-group="robbie3" data-images="images/fullsize/robbie/RobbieSmall7_web.jpg|images/fullsize/robbie/RobbieSmall8_web.jpg">
-      <img src="images/thumbnails/robbie/RobbieSmall7_thumb.jpg" alt="Robbie 7–8 set">
-    </div>
-    <div class="thumb" data-group="parker1" data-images="images/fullsize/parker/ParkerSmall1_web.jpg|images/fullsize/parker/ParkerSmall2_web.jpg|images/fullsize/parker/ParkerSmall3_web.jpg|images/fullsize/parker/ParkerSmall4_web.jpg|images/fullsize/parker/ParkerSmall5_web.jpg">
-      <img src="images/thumbnails/parker/ParkerSmall4_thumb.jpg" alt="Parker gallery">
-    </div>
+ <!-- Gallery -->
+<div class="glass-frame">
+  <!-- Robbie set 1 (shows 1–2) -->
+  <div class="thumb"
+       data-group="robbie1"
+       data-images="images/fullsize/robbie/RobbieSmall1_web.jpg|images/fullsize/robbie/RobbieSmall2_web.jpg">
+    <img loading="lazy" src="images/thumbnails/robbie/RobbieSmall1_thumb.jpg" alt="Robbie 1–2 set">
   </div>
 
+  <!-- Robbie set 2 (shows 3–6) -->
+  <div class="thumb"
+       data-group="robbie2"
+       data-images="images/fullsize/robbie/RobbieSmall3_web.jpg|images/fullsize/robbie/RobbieSmall4_web.jpg|images/fullsize/robbie/RobbieSmall5_web.jpg|images/fullsize/robbie/RobbieSmall6_web.jpg">
+    <img loading="lazy" src="images/thumbnails/robbie/RobbieSmall3_thumb.jpg" alt="Robbie 3–6 set">
+  </div>
+
+  <!-- Robbie set 3 (shows 7–8) -->
+  <div class="thumb"
+       data-group="robbie3"
+       data-images="images/fullsize/robbie/RobbieSmall7_web.jpg|images/fullsize/robbie/RobbieSmall8_web.jpg">
+    <img loading="lazy" src="images/thumbnails/robbie/RobbieSmall7_thumb.jpg" alt="Robbie 7–8 set">
+  </div>
+
+  <!-- Parker set (shows 1–5) -->
+  <div class="thumb"
+       data-group="parker1"
+       data-images="images/fullsize/parker/ParkerSmall1_web.jpg|images/fullsize/parker/ParkerSmall2_web.jpg|images/fullsize/parker/ParkerSmall3_web.jpg|images/fullsize/parker/ParkerSmall4_web.jpg|images/fullsize/parker/ParkerSmall5_web.jpg">
+    <img loading="lazy" src="images/thumbnails/parker/ParkerSmall4_thumb.jpg" alt="Parker gallery">
+  </div>
+</div>
+
+
+  <!-- Lightbox -->
   <div id="lightbox" class="lightbox">
     <button class="close-btn" aria-label="Close">&times;</button>
     <div class="swiper">
@@ -49,6 +68,7 @@
     </div>
   </div>
 
+  <!-- Footer -->
   <footer class="footer">
     <div class="socials">
       <a href="https://www.tiktok.com/@locrobster" target="_blank"><i class="fab fa-tiktok"></i></a>
@@ -62,6 +82,5 @@
 
   <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
   <script src="script.js"></script>
-  <script>lucide.createIcons();</script>
 </body>
 </html>
